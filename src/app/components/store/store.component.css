@@ -1,13 +1,24 @@
-body{
+.body{
     background-color: rgba(105, 105, 105,0.5);
-    margin-bottom: 20px;
+    height: 92.1vh;
 }
 .container-style{
     position: relative;
+    align-items: center;
+    justify-content: center;
+    height: 750px;
     width: auto;
-    height: 100;
-    top: 50px;
-    background-color: #313131;
+    padding: 20px;
+    overflow-x: hidden;
+    box-shadow: 0 0 0.5em 1px #fcfcfc; 
+    border-radius: 20px;
+    background-color: rgba(105, 105, 105,0.9);
+    top: 30px;
+
+}
+
+.hiden-scroll::-webkit-scrollbar {
+    display: none;
 }
 .modal-title-txt{
     font-size: 20px;
