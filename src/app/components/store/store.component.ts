@@ -21,6 +21,7 @@ export class StoreComponent implements OnInit {
       storeName: null,
       description: null,
       telephone: null,
+      status: null,
     })
   }
 
@@ -30,6 +31,7 @@ export class StoreComponent implements OnInit {
       storeName: "",
       description: "",
       telephone: "",
+      status: "",
     })
   }
 
@@ -39,6 +41,7 @@ export class StoreComponent implements OnInit {
       storeName: receiveStoreId.storeName,
       description: receiveStoreId.description,
       telephone: receiveStoreId.telephone,
+      status: receiveStoreId.status,
     })
   }
 
@@ -59,6 +62,7 @@ export class StoreComponent implements OnInit {
 
   createStore() {
     console.log(this.formStore.value);
+    this.formStore.value = "Open"
     this.callapi.createStore(this.formStore.value).subscribe(data => {
       console.log(data);
       Swal.fire({
@@ -74,6 +78,9 @@ export class StoreComponent implements OnInit {
   }
 
   editStore() {
+    console.log(this.storeId);
+    console.log(this.formStore.value);
+    
     this.callapi.editStore(this.storeId, this.formStore.value).subscribe(data => {
       console.log(data);
       Swal.fire({

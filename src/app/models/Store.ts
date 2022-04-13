@@ -3,4 +3,5 @@ export interface store{
     storeName : string
     description : string
     telephone : string
+    status : string
 }
