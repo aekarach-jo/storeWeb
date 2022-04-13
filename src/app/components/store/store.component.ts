@@ -90,6 +90,8 @@ export class StoreComponent implements OnInit {
         showConfirmButton: false,
         timer: 1000
       })
+      this.emptyForm()
+      this.getAllStore()
     })
   }
 
