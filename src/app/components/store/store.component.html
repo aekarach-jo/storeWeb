@@ -1,0 +1,105 @@
+<body>
+    <div class="container container-style">
+        <button class="btn btn-success float-right m-3" type="button" data-toggle="modal"
+            data-target="#createStoreModal">เพิ่มร้านค้า</button>
+        <table class="table text-white ">
+            <thead>
+                <tr>
+                    <th scope="col">ชื่อร้าน</th>
+                    <th scope="col">รายละเอียด</th>
+                    <th scope="col">เบอร์โทรศัพท์</th>
+                    <th [width]="120" scope="col">เพิ่มเติม</th>
+                </tr>
+            </thead>
+            <tbody *ngFor="let store of storeAllData">
+                <tr>
+                    <td class="align-middle">{{store.storeName}}</td>
+                    <td class="align-middle">{{store.description}}</td>
+                    <td class="align-middle">{{store.telephone}}</td>
+                    <td class="align-middle">
+                        <div class="row">
+                            <div class="m-2">
+                                <img type="button" src="https://img.icons8.com/cotton/40/edit--v2.png"
+                                    (click)="getStoreById(store.storeId)" data-toggle="modal"
+                                    data-target="#editStoreModal">
+                            </div>
+                            <div class="m-2">
+                                <img type="button" src="https://img.icons8.com/color/40/delete-forever.png"
+                                    (click)="deleteStore(store.storeId)">
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+
+<div class="modal fade" id="createStoreModal" tabindex="-1" aria-labelledby="createStoreModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content modal-content-style" [formGroup]="formStore">
+            <div class="modal-header">
+                <h5 class="modal-title modal-title-txt" id="exampleModalLabel">เพิ่มร้านค้า</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body m-2">
+                <div class="row">
+                    <label for="storeName" class="txt-InModal">ชื่อร้านค้า</label>
+                    <input formControlName="storeName" type="text" class="form-control">
+                </div>
+                <div class="row">
+                    <label for="description" class="txt-InModal">รายละเอียด</label>
+                    <input formControlName="description" type="text" class="form-control">
+                </div>
+                <div class="row">
+                    <label for="telePhone" class="txt-InModal">เบอร์โทรศัพท์</label>
+                    <input formControlName="telephone" type="text" class="form-control">
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                    (click)="emptyForm()">ยกเลิก</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal"
+                    (click)="createStore()">บันทึก</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="editStoreModal" tabindex="-1" aria-labelledby="editStoreModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content modal-content-style" [formGroup]="formStore">
+            <div class="modal-header">
+                <h5 class="modal-title modal-title-txt" id="exampleModalLabel">แก้ไขร้านค้า</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body m-2">
+                <div class="row">
+                    <label for="storeName" class="txt-InModal">ชื่อร้านค้า</label>
+                    <input formControlName="storeName" type="text" class="form-control">
+                </div>
+                <div class="row">
+                    <label for="description" class="txt-InModal">รายละเอียด</label>
+                    <input formControlName="description" type="text" class="form-control">
+                </div>
+                <div class="row">
+                    <label for="telePhone" class="txt-InModal">เบอร์โทรศัพท์</label>
+                    <input formControlName="telephone" type="text" class="form-control">
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                    (click)="emptyForm()">ยกเลิก</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal"
+                    (click)="editStore()">บันทึก</button>
+            </div>
+        </div>
+    </div>
+</div>

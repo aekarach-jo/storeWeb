@@ -1,0 +1,30 @@
+
+
+.navbar-bg{
+    background-color: #313131;
+}
+
+.txt-color{
+    position: relative;
+    color: aliceblue;
+    text-align: center;
+    align-items: center;
+    top: 10px;
+    margin: 15px;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+
+.txt-color:hover{
+    position: relative;
+    color: aliceblue;
+    text-align: center;
+    align-items: center;
+    top: 10px;
+    margin: 22px;
+    font-size: 20px;
+    font-weight: 600;
+    transition: all 0.4s ease-in-out;
+    text-shadow: 30px;
+}
