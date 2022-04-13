@@ -62,7 +62,7 @@ export class StoreComponent implements OnInit {
 
   createStore() {
     console.log(this.formStore.value);
-    this.formStore.value = "Open"
+    this.formStore.value.status = "Open"
     this.callapi.createStore(this.formStore.value).subscribe(data => {
       console.log(data);
       Swal.fire({
@@ -78,10 +78,10 @@ export class StoreComponent implements OnInit {
   }
 
   editStore() {
-    console.log(this.storeId);
+    console.log(this.formStore.value.storeId);
     console.log(this.formStore.value);
     
-    this.callapi.editStore(this.storeId, this.formStore.value).subscribe(data => {
+    this.callapi.editStore(this.formStore.value.storeId, this.formStore.value).subscribe(data => {
       console.log(data);
       Swal.fire({
         position: "center",

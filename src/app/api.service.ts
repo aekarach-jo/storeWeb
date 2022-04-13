@@ -19,10 +19,10 @@ export class ApiService {
     return this.http.post<store>(`${environment.apiUrl}Store/CreateStore`, store)
   }
   public editStore(storeid: string, store: store) {
-    return this.http.put<store>(`${environment.apiUrl}Store/EditStore${storeid}`, store)
+    return this.http.put<store>(`${environment.apiUrl}Store/EditStore/${storeid}`, store)
   }
   public deleteStore(storeId: string) {
-    return this.http.delete<store>(`${environment.apiUrl}Store/DeleteStore/${storeId}`)
+    return this.http.get<store>(`${environment.apiUrl}Store/DeleteStore/${storeId}`)
   }
 
 }
